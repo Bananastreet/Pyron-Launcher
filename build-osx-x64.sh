@@ -2,7 +2,7 @@
 
 set -e
 
-APPBASE="build/macos-x64/Zenyte.app"
+APPBASE="build/macos-x64/Pyron.app"
 
 build() {
     pushd native
@@ -23,8 +23,8 @@ build() {
 
     mkdir -p $APPBASE/Contents/{MacOS,Resources}
 
-    cp native/build-x64/src/Zenyte $APPBASE/Contents/MacOS/
-    cp target/Zenyte.jar $APPBASE/Contents/Resources/
+    cp native/build-x64/src/Pyron $APPBASE/Contents/MacOS/
+    cp target/Pyron.jar $APPBASE/Contents/Resources/
     cp packr/macos-x64-config.json $APPBASE/Contents/Resources/config.json
     cp target/filtered-resources/Info.plist $APPBASE/Contents/
     cp osx/runelite.icns $APPBASE/Contents/Resources/icons.icns
@@ -33,12 +33,12 @@ build() {
     mkdir $APPBASE/Contents/Resources/jre
     mv jdk-$MAC_AMD64_VERSION-jre/Contents/Home/* $APPBASE/Contents/Resources/jre
 
-    echo Setting world execute permissions on Zenyte
+    echo Setting world execute permissions on Pyron
     pushd $APPBASE
-    chmod g+x,o+x Contents/MacOS/Zenyte
+    chmod g+x,o+x Contents/MacOS/Pyron
     popd
 
-    otool -l $APPBASE/Contents/MacOS/Zenyte
+    otool -l $APPBASE/Contents/MacOS/Pyron
 }
 
 dmg() {
@@ -48,24 +48,24 @@ dmg() {
     # create-dmg exits with an error code due to no code signing, but is still okay
     # note we use Adam-/create-dmg as upstream does not support UDBZ
     create-dmg --format UDBZ $APPBASE . || true
-    mv Zenyte\ *.dmg Zenyte-x64.dmg
+    mv Pyron\ *.dmg Pyron-x64.dmg
 
     # dump for CI
-    hdiutil imageinfo Zenyte-x64.dmg
+    hdiutil imageinfo Pyron-x64.dmg
 
-    if ! hdiutil imageinfo Zenyte-x64.dmg | grep -q "Format: UDBZ" ; then
+    if ! hdiutil imageinfo Pyron-x64.dmg | grep -q "Format: UDBZ" ; then
         echo "Format of resulting dmg was not UDBZ, make sure your create-dmg has support for --format"
         exit 1
     fi
 
-    if ! hdiutil imageinfo Zenyte-x64.dmg | grep -q "Apple_HFS" ; then
+    if ! hdiutil imageinfo Pyron-x64.dmg | grep -q "Apple_HFS" ; then
         echo Filesystem of dmg is not Apple_HFS
         exit 1
     fi
 
     # Notarize app
-    if xcrun notarytool submit Zenyte-x64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
-        xcrun stapler staple Zenyte-x64.dmg
+    if xcrun notarytool submit Pyron-x64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
+        xcrun stapler staple Pyron-x64.dmg
     fi
 }
 

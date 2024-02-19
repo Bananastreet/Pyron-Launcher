@@ -30,8 +30,8 @@
 	<groupId>net.runelite</groupId>
 	<artifactId>launcher</artifactId>
 	<version>2.6.12-SNAPSHOT</version>
-	<name>Zenyte Launcher</name>
-	<description>Launcher for Zenyte client</description>
+	<name>Pyron Launcher</name>
+	<description>Launcher for Pyron client</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,7 +61,7 @@
 		</repository>
 		<repository>
 			<id>runelite</id>
-			<name>Zenyte</name>
+			<name>Pyron</name>
 			<url>https://repo.runelite.net</url>
 		</repository>
 	</repositories>
@@ -152,7 +152,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>Zenyte</finalName>
+		<finalName>Pyron</finalName>
 
 		<resources>
 			<resource>

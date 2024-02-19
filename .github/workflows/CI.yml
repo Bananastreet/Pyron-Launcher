@@ -62,9 +62,9 @@ jobs:
       with:
         name: windows
         path: |
-          ZenyteSetup.exe
-          ZenyteSetup32.exe
-          ZenyteSetupAArch64.exe
+          PyronSetup.exe
+          PyronSetup32.exe
+          PyronSetupAArch64.exe
         if-no-files-found: error
   linux:
     runs-on: ubuntu-20.04
@@ -96,14 +96,14 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: jar
-        path: target/Zenyte.jar
+        path: target/Pyron.jar
         if-no-files-found: error
     - uses: actions/upload-artifact@v3
       with:
         name: linux
         path: |
-          Zenyte.AppImage
-          Zenyte-aarch64.AppImage
+          Pyron.AppImage
+          Pyron-aarch64.AppImage
         if-no-files-found: error
   macos:
     runs-on: macos-11
@@ -145,13 +145,13 @@ jobs:
       run: ./build-osx-aarch64.sh --build --dmg
     # tar app to keep permissions correct
     - name: tar app
-      run: tar -cf app.tar build/macos-x64/Zenyte.app build/macos-aarch64/Zenyte.app build-osx-x64.sh build-osx-aarch64.sh osx/signing.entitlements
+      run: tar -cf app.tar build/macos-x64/Pyron.app build/macos-aarch64/Pyron.app build-osx-x64.sh build-osx-aarch64.sh osx/signing.entitlements
     - uses: actions/upload-artifact@v3
       with:
         name: macos-dmg
         path: |
-          Zenyte-x64.dmg
-          Zenyte-aarch64.dmg
+          Pyron-x64.dmg
+          Pyron-aarch64.dmg
         if-no-files-found: error
     - uses: actions/upload-artifact@v3
       with:

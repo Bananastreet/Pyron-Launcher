@@ -81,8 +81,8 @@ class Updater
 		Path path = Paths.get(command.get());
 
 		// on macOS packr changes the cwd to the resource directory prior to launching the JVM,
-		// causing current.info().command() to return /Applications/Zenyte.app/Contents/Resources/./Zenyte
-		// despite the executable really being at /Applications/Zenyte.app/Contents/MacOS/Zenyte
+		// causing current.info().command() to return /Applications/Pyron.app/Contents/Resources/./Pyron
+		// despite the executable really being at /Applications/Pyron.app/Contents/MacOS/Pyron
 		path = path.normalize()
 			.resolveSibling(Path.of("..", "MacOS", path.getFileName().toString()))
 			.normalize();
@@ -333,7 +333,7 @@ class Updater
 			return;
 		}
 
-		// the installer kills running Zenyte processes, so check that there are no others running
+		// the installer kills running Pyron processes, so check that there are no others running
 		List<ProcessHandle> allProcesses = ProcessHandle.allProcesses().collect(Collectors.toList());
 		for (ProcessHandle ph : allProcesses)
 		{

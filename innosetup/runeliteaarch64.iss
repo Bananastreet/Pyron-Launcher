@@ -1,10 +1,10 @@
 [Setup]
-AppName=Zenyte Launcher
-AppPublisher=Zenyte
-UninstallDisplayName=Zenyte
+AppName=Pyron Launcher
+AppPublisher=Pyron
+UninstallDisplayName=Pyron
 AppVersion=${project.version}
-AppSupportURL=https://zenyte.com
-DefaultDirName={localappdata}\Zenyte
+AppSupportURL=https://pyron.com
+DefaultDirName={localappdata}\Pyron
 
 ; ~30 mb for the repo the launcher downloads
 ExtraDiskSpaceRequired=30000000
@@ -13,43 +13,43 @@ PrivilegesRequired=lowest
 
 WizardSmallImageFile=${basedir}/innosetup/runelite_small.bmp
 SetupIconFile=${basedir}/runelite.ico
-UninstallDisplayIcon={app}\Zenyte.exe
+UninstallDisplayIcon={app}\Pyron.exe
 
 Compression=lzma2
 SolidCompression=yes
 
 OutputDir=${basedir}
-OutputBaseFilename=ZenyteSetupAArch64
+OutputBaseFilename=PyronSetupAArch64
 
 [Tasks]
 Name: DesktopIcon; Description: "Create a &desktop icon";
 
 [Files]
-Source: "${basedir}\build\win-aarch64\Zenyte.exe"; DestDir: "{app}"
-Source: "${basedir}\build\win-aarch64\Zenyte.jar"; DestDir: "{app}"
+Source: "${basedir}\build\win-aarch64\Pyron.exe"; DestDir: "{app}"
+Source: "${basedir}\build\win-aarch64\Pyron.jar"; DestDir: "{app}"
 Source: "${basedir}\build\win-aarch64\launcher_aarch64.dll"; DestDir: "{app}"
 Source: "${basedir}\build\win-aarch64\config.json"; DestDir: "{app}"
 Source: "${basedir}\build\win-aarch64\jre\*"; DestDir: "{app}\jre"; Flags: recursesubdirs
 
 [Icons]
 ; start menu
-Name: "{userprograms}\Zenyte\Zenyte"; Filename: "{app}\Zenyte.exe"
-Name: "{userprograms}\Zenyte\Zenyte (configure)"; Filename: "{app}\Zenyte.exe"; Parameters: "--configure"
-Name: "{userprograms}\Zenyte\Zenyte (safe mode)"; Filename: "{app}\Zenyte.exe"; Parameters: "--safe-mode"
-Name: "{userdesktop}\Zenyte"; Filename: "{app}\Zenyte.exe"; Tasks: DesktopIcon
+Name: "{userprograms}\Pyron\Pyron"; Filename: "{app}\Pyron.exe"
+Name: "{userprograms}\Pyron\Pyron (configure)"; Filename: "{app}\Pyron.exe"; Parameters: "--configure"
+Name: "{userprograms}\Pyron\Pyron (safe mode)"; Filename: "{app}\Pyron.exe"; Parameters: "--safe-mode"
+Name: "{userdesktop}\Pyron"; Filename: "{app}\Pyron.exe"; Tasks: DesktopIcon
 
 [Run]
-Filename: "{app}\Zenyte.exe"; Parameters: "--postinstall"; Flags: nowait
-Filename: "{app}\Zenyte.exe"; Description: "&Open Zenyte"; Flags: postinstall skipifsilent nowait
+Filename: "{app}\Pyron.exe"; Parameters: "--postinstall"; Flags: nowait
+Filename: "{app}\Pyron.exe"; Description: "&Open Pyron"; Flags: postinstall skipifsilent nowait
 
 [InstallDelete]
 ; Delete the old jvm so it doesn't try to load old stuff with the new vm and crash
 Type: filesandordirs; Name: "{app}\jre"
 ; previous shortcut
-Type: files; Name: "{userprograms}\Zenyte.lnk"
+Type: files; Name: "{userprograms}\Pyron.lnk"
 
 [UninstallDelete]
-Type: filesandordirs; Name: "{%USERPROFILE}\.zenyte\repository2"
+Type: filesandordirs; Name: "{%USERPROFILE}\.pyron\repository2"
 ; includes install_id, settings, etc
 Type: filesandordirs; Name: "{app}"
 

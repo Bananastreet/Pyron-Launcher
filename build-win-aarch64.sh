@@ -81,15 +81,15 @@ jlink \
   --add-modules jdk.xml.dom \
   --add-modules jdk.zipfs
 
-cp native/build-aarch64/src/Release/Zenyte.exe build/win-aarch64/
-cp target/Zenyte.jar build/win-aarch64/
+cp native/build-aarch64/src/Release/Pyron.exe build/win-aarch64/
+cp target/Pyron.jar build/win-aarch64/
 cp packr/win-aarch64-config.json build/win-aarch64/config.json
 cp liblauncher/buildaarch64/Release/launcher_aarch64.dll build/win-aarch64/
 
-echo Zenyte.exe aarch64 sha256sum
-sha256sum build/win-aarch64/Zenyte.exe
+echo Pyron.exe aarch64 sha256sum
+sha256sum build/win-aarch64/Pyron.exe
 
-dumpbin //HEADERS build/win-aarch64/Zenyte.exe
+dumpbin //HEADERS build/win-aarch64/Pyron.exe
 
 # We use the filtered iss file
 iscc target/filtered-resources/runeliteaarch64.iss

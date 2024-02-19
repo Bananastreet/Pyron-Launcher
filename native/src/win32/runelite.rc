@@ -11,9 +11,9 @@ BEGIN
     BEGIN
         BLOCK "040904B0"
         BEGIN
-            VALUE "FileDescription",  "Zenyte"
-            VALUE "OriginalFilename", "Zenyte.exe"
-            VALUE "ProductName",      "Zenyte Launcher"
+            VALUE "FileDescription",  "Pyron"
+            VALUE "OriginalFilename", "Pyron.exe"
+            VALUE "ProductName",      "Pyron Launcher"
         END
     END
 
