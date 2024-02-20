@@ -1,6 +1,6 @@
 #include "winres.h"
 
-RUNELITE_ICON ICON pyron.ico
+RUNELITE_ICON ICON runelite.ico
 
 1 VERSIONINFO
 FILEFLAGS       0

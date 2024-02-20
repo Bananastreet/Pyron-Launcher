@@ -12,7 +12,7 @@ ArchitecturesAllowed=x86 x64
 PrivilegesRequired=lowest
 
 WizardSmallImageFile=${basedir}/innosetup/runelite_small.bmp
-SetupIconFile=${basedir}/pyron.ico
+SetupIconFile=${basedir}/runelite.ico
 UninstallDisplayIcon={app}\Pyron.exe
 
 Compression=lzma2
